@@ -711,7 +711,7 @@ api.transferGems = {
       ]);
     }
     if (receiver.preferences.pushNotifications.giftedGems !== false) {
-      sendPushNotification(
+      await sendPushNotification(
         receiver,
         {
           title: res.t('giftedGems', receiverLang),
