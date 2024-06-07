@@ -266,10 +266,10 @@
       class="foodInfo"
     >
       <div v-if="currentDraggingFood != null">
-        <div
+        <Sprite
           class="food-icon"
-          :class="`Pet_Food_${currentDraggingFood.key}`"
-        ></div>
+          :imageName="`Pet_Food_${currentDraggingFood.key}`"
+        />
         <div class="popover">
           <div
             class="popover-content"
@@ -285,10 +285,10 @@
       class="foodInfo mouse"
     >
       <div v-if="currentDraggingFood != null">
-        <div
+        <Sprite
           class="food-icon"
-          :class="`Pet_Food_${currentDraggingFood.key}`"
-        ></div>
+          :imageName="`Pet_Food_${currentDraggingFood.key}`"
+         />
         <div class="popover">
           <div
             class="popover-content"
@@ -456,6 +456,7 @@ import notifications from '@/mixins/notifications';
 import openedItemRowsMixin from '@/mixins/openedItemRows';
 import petMixin from '@/mixins/petMixin';
 import seasonalNPC from '@/mixins/seasonalNPC';
+import Sprite from '@/components/ui/sprite';
 
 import { CONSTANTS, setLocalSetting, getLocalSetting } from '@/libs/userlocalManager';
 import { isOwned } from '../../../libs/createAnimal';
@@ -488,6 +489,7 @@ export default {
     WelcomeModal,
     HatchingModal,
     InventoryDrawer,
+    Sprite,
   },
   directives: {
     resize: ResizeDirective,
