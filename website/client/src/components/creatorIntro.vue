@@ -222,7 +222,7 @@
             >
               <Sprite
                 class="background"
-                :imageName="`background_${bg.key}`"
+                :image-name="`background_${bg.key}`"
               />
               <b-popover
                 :target="bg.key"
@@ -253,7 +253,7 @@
             >
               <Sprite
                 class="background"
-                :imageName="`background_${bg.key}`"
+                :image-name="`background_${bg.key}`"
                 :class="[backgroundLockedStatus(bg.key)]"
               />
               <i
@@ -325,7 +325,7 @@
             >
               <Sprite
                 class="background"
-                :imageName="`background_${bg.key}`"
+                :image-name="`background_${bg.key}`"
                 :class="[backgroundLockedStatus(bg.key)]"
               />
               <i
@@ -386,7 +386,7 @@
           >
             <Sprite
               class="background"
-              :imageName="`background_${bg.key}`"
+              :image-name="`background_${bg.key}`"
               :class="[backgroundLockedStatus(bg.key)]"
             />
             <b-popover

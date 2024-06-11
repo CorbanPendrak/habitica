@@ -268,7 +268,7 @@
       <div v-if="currentDraggingFood != null">
         <Sprite
           class="food-icon"
-          :imageName="`Pet_Food_${currentDraggingFood.key}`"
+          :image-name="`Pet_Food_${currentDraggingFood.key}`"
         />
         <div class="popover">
           <div
@@ -287,8 +287,8 @@
       <div v-if="currentDraggingFood != null">
         <Sprite
           class="food-icon"
-          :imageName="`Pet_Food_${currentDraggingFood.key}`"
-         />
+          :image-name="`Pet_Food_${currentDraggingFood.key}`"
+        />
         <div class="popover">
           <div
             class="popover-content"

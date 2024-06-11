@@ -17,17 +17,17 @@
     >
       <div class="option">
         <Sprite
-        v-if="!option.none"
+          v-if="!option.none"
           class="sprite"
           :prefix="option.isGear ? 'shop' : 'icon'"
-          :imageName="option.imageName"
+          :image-name="option.imageName"
         />
-          <div
-            v-else
-            class="redline-outer"
-          >
-            <div class="redline"></div>
-          </div>
+        <div
+          v-else
+          class="redline-outer"
+        >
+          <div class="redline"></div>
+        </div>
       </div>
       <div
         v-if="option.gemLocked"
