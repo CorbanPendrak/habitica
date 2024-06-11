@@ -220,10 +220,10 @@
               class="col-4 text-center customize-option background-button"
               @click="unlock('background.' + bg.key)"
             >
-              <div
+              <Sprite
                 class="background"
-                :class="`background_${bg.key}`"
-              ></div>
+                :imageName="`background_${bg.key}`"
+              />
               <b-popover
                 :target="bg.key"
                 triggers="hover focus"
@@ -251,10 +251,11 @@
               @click="!user.purchased.background[bg.key]
                 ? backgroundSelected(bg) : unlock('background.' + bg.key)"
             >
-              <div
+              <Sprite
                 class="background"
-                :class="[`background_${bg.key}`, backgroundLockedStatus(bg.key)]"
-              ></div>
+                :imageName="`background_${bg.key}`"
+                :class="[backgroundLockedStatus(bg.key)]"
+              />
               <i
                 v-if="!user.purchased.background[bg.key]"
                 class="glyphicon glyphicon-lock"
@@ -322,10 +323,11 @@
               @click="!user.purchased.background[bg.key]
                 ? backgroundSelected(bg) : unlock('background.' + bg.key)"
             >
-              <div
+              <Sprite
                 class="background"
-                :class="[`background_${bg.key}`, backgroundLockedStatus(bg.key)]"
-              ></div>
+                :imageName="`background_${bg.key}`"
+                :class="[backgroundLockedStatus(bg.key)]"
+              />
               <i
                 v-if="!user.purchased.background[bg.key]"
                 class="glyphicon glyphicon-lock"
@@ -382,10 +384,11 @@
             class="col-4 text-center customize-option background-button"
             @click="unlock('background.' + bg.key)"
           >
-            <div
+            <Sprite
               class="background"
-              :class="[`background_${bg.key}`, backgroundLockedStatus(bg.key)]"
-            ></div>
+              :imageName="`background_${bg.key}`"
+              :class="[backgroundLockedStatus(bg.key)]"
+            />
             <b-popover
               :target="bg.key"
               triggers="hover focus"
@@ -1188,6 +1191,7 @@ import arrowRight from '@/assets/svg/arrow_right.svg';
 import arrowLeft from '@/assets/svg/arrow_left.svg';
 import svgClose from '@/assets/svg/close.svg';
 import { avatarEditorUtilies } from '../mixins/avatarEditUtilities';
+import Sprite from '@/components/ui/sprite';
 
 export default {
   components: {
@@ -1200,6 +1204,7 @@ export default {
     subMenu,
     toggleSwitch,
     usernameForm,
+    Sprite,
   },
   mixins: [guide, notifications, avatarEditorUtilies],
   data () {
