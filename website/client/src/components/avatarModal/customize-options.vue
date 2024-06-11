@@ -16,17 +16,18 @@
       @click="option.click(option)"
     >
       <div class="option">
-        <div
-          class="sprite customize-option"
-          :class="option.class"
-        >
+        <Sprite
+        v-if="!option.none"
+          class="sprite"
+          :prefix="option.isGear ? 'shop' : 'icon'"
+          :imageName="option.imageName"
+        />
           <div
-            v-if="option.none"
+            v-else
             class="redline-outer"
           >
             <div class="redline"></div>
           </div>
-        </div>
       </div>
       <div
         v-if="option.gemLocked"
@@ -68,8 +69,12 @@
 import gem from '@/assets/svg/gem.svg';
 import gold from '@/assets/svg/gold.svg';
 import { avatarEditorUtilies } from '../../mixins/avatarEditUtilities';
+import Sprite from '@/components/ui/sprite.vue';
 
 export default {
+  components: {
+    Sprite,
+  },
   mixins: [
     avatarEditorUtilies,
   ],
@@ -108,7 +113,7 @@ export default {
     cursor: pointer;
 
     &.premium {
-      height: 112px;
+      height: 120px;
       width: 96px;
       margin-left: 8px;
       margin-right: 8px;
@@ -125,21 +130,9 @@ export default {
       box-shadow: 0 2px 2px 0 rgba(26, 24, 29, 0.16), 0 1px 4px 0 rgba(26, 24, 29, 0.12);
       background-color: $white;
 
-      .sprite.customize-option.shirt {
-        margin-left: -3px !important;
-        // otherwise its overriden by the .outer-option-background:not(.none) { rules
-      }
-
-      .sprite.customize-option.skin {
-        margin-left: -8px !important;
-        // otherwise its overriden by the .outer-option-background:not(.none) { rules
-      }
-
       .option {
         border: none;
         border-radius: 2px;
-        padding-left: 6px;
-        padding-top: 4px;
       }
 
       &:hover {
@@ -197,8 +190,8 @@ export default {
   }
   .option {
     vertical-align: bottom;
-    height: 64px;
-    width: 64px;
+    height: 72px;
+    width: 72px;
 
     margin: 12px 8px;
     border: 4px solid transparent;
@@ -210,59 +203,10 @@ export default {
     }
   }
 
-  .outer-option-background:not(.none) {
-
-    .sprite.customize-option {
-      margin-top: 0;
-      margin-left: 0;
-
-      &.color-bangs {
-        margin-top: 3px;
-      }
-      &.skin {
-        margin-top: -4px;
-        margin-left: -4px;
-      }
-      &.chair {
-        margin-left: -1px;
-        margin-top: -1px;
-
-        &.button_chair_black {
-          // different sprite margin?
-          margin-top: -3px;
-        }
-
-        &.handleless {
-          margin-left: -5px;
-          margin-top: -5px;
-        }
-      }
-      &.color, &.bangs {
-          margin-top: 4px;
-          margin-left: -3px;
-      }
-
-      &.hair.base {
-          margin-top: 0px;
-          margin-left: -5px;
-      }
-
-      &.headAccessory {
-        margin-top: 0;
-        margin-left: -4px;
-      }
-
-      &.headband {
-        margin-top: -6px;
-        margin-left: -27px;
-      }
-    }
-  }
-
   .text-center {
     .gem-lock, .gold-lock {
       display: inline-block;
-      margin: 0 auto 8px;
+      margin: 0 auto 12px;
       vertical-align: bottom;
     }
   }
